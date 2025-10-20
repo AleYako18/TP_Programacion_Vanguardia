@@ -1,0 +1,4 @@
+2025-10-17 21:18:53.601683-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM ARTICULO RESERVAS [*]USUARIO"
+Syntax error in SQL statement "SELECT * FROM ARTICULO RESERVAS [*]USUARIO"; SQL statement:
+SELECT * FROM ARTICULO RESERVAS USUARIO [42000-232]
