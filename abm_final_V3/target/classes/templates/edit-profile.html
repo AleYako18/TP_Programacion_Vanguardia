@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::title}, ~{::content})}">
+
+<head>
+    <title>Modificar Mis Datos</title>
+</head>
+
+<body>
+    <div th:fragment="content">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 fw-normal">Modificar Mis Datos</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Mensajes de éxito/error -->
+                        <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+                        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+                        <form th:action="@{/profile}" method="post">
+                            <input type="hidden" name="_method" value="put" />
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre" class="form-control" th:value="${usuario.nombre}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellido" class="form-label">Apellido:</label>
+                                <input type="text" id="apellido" name="apellido" class="form-control" th:value="${usuario.apellido}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Correo Electrónico:</label>
+                                <input type="email" id="username" name="username" class="form-control" th:value="${usuario.username}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Nueva Contraseña:</label>
+                                <input type="password" id="password" name="password" class="form-control" placeholder="Dejar en blanco para no cambiar">
+                            </div>
+                            <div class="d-flex justify-content-end mt-4">
+                                <a th:href="@{/dashboard}" class="btn btn-secondary me-2">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
