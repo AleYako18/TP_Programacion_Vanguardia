@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Predicción de Uso</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        pre {
+            white-space: pre-wrap;
+            font-family: "Menlo", "Monaco", "Consolas", monospace;
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            border-radius: 5px;
+            color: #555;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .grafico-container {
+            text-align: center;
+            margin-bottom: 40px; /* Espacio entre gráficos */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Informe de Predicción de Uso</h1>
+        
+        <!-- Análisis de Texto -->
+        <h2>Análisis Detallado</h2>
+        <pre>{{ texto_del_informe }}</pre>
+
+        <!-- Gráfico de Predicción de Tendencia -->
+        <div class="grafico-container">
+            <h2>Gráfico de Predicción de Tendencia</h2>
+            {% if ruta_grafico_prediccion %}
+                <img src="{{ url_for('static', filename=ruta_grafico_prediccion) }}" alt="Gráfico de predicción de tendencia mensual">
+            {% else %}
+                <p>No hay datos suficientes para generar un gráfico de predicción (se necesitan datos de al menos 2 meses).</p>
+            {% endif %}
+        </div>
+
+        <!-- Gráfico Descriptivo de Popularidad -->
+        <div class="grafico-container">
+            <h2>Visualización de Popularidad</h2>
+            {% if ruta_grafico_populares %}
+                <img src="{{ url_for('static', filename=ruta_grafico_populares) }}" alt="Gráfico de popularidad de recursos">
+            {% else %}
+                <p>No hay datos suficientes para generar un gráfico de popularidad.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Flask
+requests
+matplotlib
+seaborn
+pandas
+scikit-learn
